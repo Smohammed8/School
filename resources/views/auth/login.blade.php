@@ -9,10 +9,14 @@
             <!-- Content area -->
             <div class="content d-flex justify-content-center align-items-center">
 
+
+              
+
                 <!-- Login card -->
                 <form class="login-form " method="post" action="{{ route('login') }}">
                     @csrf
-                    <div class="card mb-0">
+                    {{-- <div class="card mb-0"> --}}
+                        <div class="card card-outline card-primary" style="border-radius:4%;">
                         <div class="card-body">
                             <div class="text-center mb-3">
                                 <i class="icon-people icon-2x text-warning-400 border-warning-400 border-3 rounded-round p-3 mb-3 mt-1"></i>

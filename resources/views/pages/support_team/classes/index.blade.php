@@ -35,7 +35,7 @@
                                         <div class="list-icons">
                                             <div class="dropdown">
                                                 <a href="#" class="list-icons-item" data-toggle="dropdown">
-                                                    <i class="icon-menu9"></i>
+                                                    <i class="icon-menu9"></i>Action
                                                 </a>
 
                                                 <div class="dropdown-menu dropdown-menu-left">
@@ -43,11 +43,17 @@
                                                     {{--Edit--}}
                                                     <a href="{{ route('classes.edit', $c->id) }}" class="dropdown-item"><i class="icon-pencil"></i> Edit</a>
                                                    @endif
-                                                        @if(Qs::userIsSuperAdmin())
+
+                                                   @if(Qs::userIsTeamSA())
+                                                   {{--Edit--}}
+                                                   <a href="#" class="dropdown-item"><i class="icon-list"></i> Sections </a>
+                                                  @endif
+                                                
+                                                    @if(Qs::userIsSuperAdmin())
                                                     {{--Delete--}}
                                                     <a id="{{ $c->id }}" onclick="confirmDelete(this.id)" href="#" class="dropdown-item"><i class="icon-trash"></i> Delete</a>
                                                     <form method="post" id="item-delete-{{ $c->id }}" action="{{ route('classes.destroy', $c->id) }}" class="hidden">@csrf @method('delete')</form>
-                                                        @endif
+                                                     @endif
 
                                                 </div>
                                             </div>
