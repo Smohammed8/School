@@ -210,9 +210,11 @@
                 @endif
 
 
-                {{--End Exam--}}
+                  {{-- Start of Setting--}}
 
                 @include('pages.'.Qs::getUserType().'.menu')
+
+                {{-- End of setting  --}}
 
                 {{--Manage Account--}}
                 <li class="nav-item">

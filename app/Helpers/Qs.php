@@ -26,7 +26,8 @@ class Qs
 
     public static function getAppCode()
     {
-        return self::getSetting('system_title') ?: 'CJ';
+        return self::getSetting('system_title') ?: 'ET';
+       // return self::getSetting('system_title') ?: 'CJ';
     }
 
     public static function getDefaultUserImage()

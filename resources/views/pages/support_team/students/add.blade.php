@@ -3,14 +3,14 @@
 @section('content')
         <div class="card">
             <div class="card-header bg-white header-elements-inline">
-                <h6 class="card-title">Please fill The form Below To Admit A New Student</h6>
+                <h6 class="card-title"> <i class="icon-user-plus"> </i> New student registraration</h6>
 
                 {!! Qs::getPanelOptions() !!}
             </div>
 
             <form id="ajax-reg" method="post" enctype="multipart/form-data" class="wizard-form steps-validation" action="{{ route('students.store') }}" data-fouc>
                @csrf
-                <h6>Personal data</h6>
+                <h6> <b>Personal Information  </b></h6>
                 <fieldset>
                     <div class="row">
                         <div class="col-md-6">
@@ -29,14 +29,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Email address: </label>
                                 <input type="email" value="{{ old('email') }}" name="email" class="form-control" placeholder="Email Address">
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="gender">Gender: <span class="text-danger">*</span></label>
                                 <select class="select form-control" id="gender" name="gender" required data-fouc data-placeholder="Choose..">
@@ -47,14 +47,14 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Phone:</label>
                                 <input value="{{ old('phone') }}" type="text" name="phone" class="form-control" placeholder="" >
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Telephone:</label>
                                 <input value="{{ old('phone2') }}" type="text" name="phone2" class="form-control" placeholder="" >
@@ -64,7 +64,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Date of Birth:</label>
                                 <input name="dob" value="{{ old('dob') }}" type="text" class="form-control date-pick" placeholder="Select Date...">
@@ -72,9 +72,9 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="nal_id">Nationality: <span class="text-danger">*</span></label>
+                                <label for="nal_id">Region: <span class="text-danger">*</span></label>
                                 <select data-placeholder="Choose..." required name="nal_id" id="nal_id" class="select-search form-control">
                                     <option value=""></option>
                                     @foreach($nationals as $nal)
@@ -84,8 +84,8 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="state_id">State: <span class="text-danger">*</span></label>
+                        <div class="col-md-6">
+                            <label for="state_id">Zone: <span class="text-danger">*</span></label>
                             <select onchange="getLGA(this.value)" required data-placeholder="Choose.." class="select-search form-control" name="state_id" id="state_id">
                                 <option value=""></option>
                                 @foreach($states as $st)
@@ -94,9 +94,9 @@
                             </select>
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="lga_id">LGA: <span class="text-danger">*</span></label>
-                            <select required data-placeholder="Select State First" class="select-search form-control" name="lga_id" id="lga_id">
+                        <div class="col-md-6">
+                            <label for="lga_id">Woreda: <span class="text-danger">*</span></label>
+                            <select required data-placeholder="Select Zone First" class="select-search form-control" name="lga_id" id="lga_id">
                                 <option value=""></option>
                             </select>
                         </div>
@@ -126,7 +126,7 @@
 
                 </fieldset>
 
-                <h6>Student Data</h6>
+                <h6><i class="icon-graduation"> </i> <b>Class Information  </b> </h6>
                 <fieldset>
                     <div class="row">
                         <div class="col-md-3">
