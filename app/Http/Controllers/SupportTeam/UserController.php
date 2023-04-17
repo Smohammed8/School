@@ -8,6 +8,7 @@ use App\Repositories\LocationRepo;
 use App\Repositories\MyClassRepo;
 use App\Repositories\UserRepo;
 use App\Http\Controllers\Controller;
+use App\Models\StudentRecord;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -38,6 +39,7 @@ class UserController extends Controller
         $d['users'] = $this->user->getPTAUsers();
         $d['nationals'] = $this->loc->getAllNationals();
         $d['blood_groups'] = $this->user->getBloodGroups();
+      
         return view('pages.support_team.users.index', $d);
     }
 

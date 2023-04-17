@@ -58,10 +58,35 @@
 
                         <ul class="nav nav-group-sub" data-submenu-title="Manage Academics">
 
-                        {{--Timetables--}}
-                            <li class="nav-item"><a href="{{ route('tt.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['tt.index']) ? 'active' : '' }}">Timetables</a></li>
-                        </ul>
+              
+                           {{--Manage Classes--}}
+                     <li class="nav-item">
+                        <a href="{{ route('classes.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['classes.index','classes.edit']) ? 'active' : '' }}"> <span> Classes</span></a>
                     </li>
+
+                    {{--Manage Sections--}}
+                    <li class="nav-item">
+                        <a href="{{ route('sections.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['sections.index','sections.edit',]) ? 'active' : '' }}"><span>Sections</span></a>
+                    </li>
+
+                    {{--Manage Subjects--}}
+                    <li class="nav-item">
+                        <a href="{{ route('subjects.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['subjects.index','subjects.edit',]) ? 'active' : '' }}"> <span>Subjects</span></a>
+                    </li>
+
+                              {{--Timetables--}}
+                              <li class="nav-item"><a href="{{ route('tt.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['tt.index']) ? 'active' : '' }}">Timetables</a></li>
+                       
+                       
+
+                        </ul>
+                        
+                    </li>
+
+
+
+                 
+
                     @endif
 
                 {{--Administrative--}}
@@ -136,7 +161,7 @@
                 @if(Qs::userIsTeamSA())
                     {{--Manage Users--}}
                     <li class="nav-item">
-                        <a href="{{ route('users.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['users.index', 'users.show', 'users.edit']) ? 'active' : '' }}"><i class="icon-users4"></i> <span> Users</span></a>
+                        <a href="{{ route('users.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['users.index', 'users.show', 'users.edit']) ? 'active' : '' }}"><i class="icon-users4"></i> <span> User Managment </span></a>
                     </li>
 
                
@@ -144,20 +169,7 @@
                     <li class="nav-item">
                         <a href="{{ route('dorms.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['dorms.index','dorms.edit']) ? 'active' : '' }}"><i class="icon-home9"></i> <span> Dormitories</span></a>
                     </li>
-                    {{--Manage Classes--}}
-                    <li class="nav-item">
-                        <a href="{{ route('classes.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['classes.index','classes.edit']) ? 'active' : '' }}"><i class="icon-windows2"></i> <span> Classes</span></a>
-                    </li>
-
-                    {{--Manage Sections--}}
-                    <li class="nav-item">
-                        <a href="{{ route('sections.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['sections.index','sections.edit',]) ? 'active' : '' }}"><i class="icon-fence"></i> <span>Sections</span></a>
-                    </li>
-
-                    {{--Manage Subjects--}}
-                    <li class="nav-item">
-                        <a href="{{ route('subjects.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['subjects.index','subjects.edit',]) ? 'active' : '' }}"><i class="icon-pin"></i> <span>Subjects</span></a>
-                    </li>
+                   
                 @endif
 
                 {{--Exam--}}

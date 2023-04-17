@@ -1,5 +1,6 @@
 <script>
 
+
     function getLGA(state_id){
         var url = '{{ route('get_lga', [':id']) }}';
         url = url.replace(':id', state_id);

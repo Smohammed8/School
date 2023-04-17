@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('page_title', 'Admit Student')
 @section('content')
+<link href=" {{ asset('global_assets/calendar/css/redmond.calendars.picker.css')}}" rel="stylesheet" type="text/css">
+
         <div class="card">
             <div class="card-header bg-white header-elements-inline">
                 <h6 class="card-title"> <i class="icon-user-plus"> </i> New student registraration</h6>
@@ -8,6 +10,7 @@
                 {!! Qs::getPanelOptions() !!}
             </div>
 
+            
             <form id="ajax-reg" method="post" enctype="multipart/form-data" class="wizard-form steps-validation" action="{{ route('students.store') }}" data-fouc>
                @csrf
                 <h6> <b>Personal Information  </b></h6>
@@ -67,7 +70,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Date of Birth:</label>
-                                <input name="dob" value="{{ old('dob') }}" type="text" class="form-control date-pick" placeholder="Select Date...">
+                                <input name="dob" value="{{ old('dob') }}" type="text" class="form-control start" placeholder="Select Date...">
 
                             </div>
                         </div>
@@ -212,4 +215,17 @@
 
             </form>
         </div>
+
+        <script src=" {{ asset('global_assets/calendar/js/jquery.plugin.js')}}"></script>
+        <script src=" {{ asset('global_assets/calendar/js/jquery.calendars.js')}}"></script>
+        <script src=" {{ asset('global_assets/calendar/js/jquery.calendars.plus.js')}}"></script>
+        <script src=" {{ asset('global_assets/calendar/js/jquery.calendars.picker.js')}}"></script>
+        <script src=" {{ asset('global_assets/calendar/js/jquery.calendars.ethiopian.js')}}"></script>
+        <script src=" {{ asset('global_assets/calendar/js/jquery.calendars.ethiopian-am.js')}}"></script>
+        <script src=" {{ asset('global_assets/calendar/js/jquery.calendars.picker-am.js')}}"></script>
+        <script>
+            var calendar = $.calendars.instance('ethiopian', 'am');
+        $('.start').calendarsPicker({calendar: calendar});
+        $('.end').calendarsPicker({calendar: calendar});
+        </script>
     @endsection

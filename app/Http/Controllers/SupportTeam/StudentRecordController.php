@@ -65,7 +65,6 @@ class StudentRecordController extends Controller
         $data['photo'] = Qs::getDefaultUserImage();
         $adm_no = $req->adm_no;
         $data['username'] = strtoupper(Qs::getAppCode().'/'.$ct.'/'.$sr['year_admitted'].'/'.($adm_no ?: mt_rand(1000, 99999)));
-
         if($req->hasFile('photo')) {
             $photo = $req->file('photo');
             $f = Qs::getFileMetaData($photo);
@@ -73,7 +72,6 @@ class StudentRecordController extends Controller
             $f['path'] = $photo->storeAs(Qs::getUploadPath('student').$data['code'], $f['name']);
             $data['photo'] = asset('storage/' . $f['path']);
         }
-
         $user = $this->user->create($data); // Create User
 
         $sr['adm_no'] = $data['username'];

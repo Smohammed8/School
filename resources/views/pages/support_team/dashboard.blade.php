@@ -69,192 +69,45 @@
 <hr>
 
 <div class="container-fluid">
-    <h5 class="mb-2"> <i class="icon-users"> </i>Class Information </h5>
+    <h5 class="mb-2"> <i class="icon-users"> </i> Student Information in each  classes  </h5>
 <div class="row">
+    @if(Qs::userIsTeamSAT())
+
+    @foreach ($classes as $class) 
+
     <div class="col-2">
-        <div class="card border-primary mb-4">
-            <div class="card-body text-primary">
-          
 
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 1 </strong>
-            <span class="badge rounded-pill bg-primary float-right">50</span>
-        </a>
-
+                <div class="card border-info mb-4">
+                    <div class="card-body text-info">
+              
+          <a href="{{ route('students.list', ['class_id'=>$class->id]) }}" class="">
+            <i class="icon-ist"></i>  <strong> {{ $class->name }} </strong>
+            <span class="badge rounded-pill bg-info float-right">{{ $student_records->where('my_class_id',  $class->id)->count() }}</span>
+          </a>
+        
         
             </div>
         </div>
     </div>
-
-    <div class="col-2">
-        <div class="card border-secondary mb-4">
-            <div class="card-body text-primary">
-             
-
-
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 2 </strong>
-            <span class="badge rounded-pill bg-secondary float-right">50</span>
-        </a>
-
-             
-            </div>
-        </div>
+    @endforeach
+    @if (count($classes) == 0)
+    <div class="col-12">
+    <div class="alert alert-warning" role="alert">
+       <h6><i class="icon-warning"></i> No class has been created yet ! </h6>
     </div>
+      </div>
+   @endif
+
+    @endif
 
 
 
 
-    <div class="col-2">
-        <div class="card border-danger mb-4">
-            <div class="card-body text-danger">
-               
-             
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 3 </strong>
-            <span class="badge rounded-pill bg-danger float-right">50</span>
-        </a>
-
-            </div>
-        </div>
-    </div>
 
 
-    <div class="col-2">
-        <div class="card border-success mb-4">
-            <div class="card-body text-success">
-           
 
-
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 4 </strong>
-            <span class="badge rounded-pill bg-success float-right">50</span>
-        </a>
-
-             
-            </div>
-        </div>
-    </div>
-
-    <div class="col-2">
-        <div class="card border-warning mb-4">
-            <div class="card-body text-warning">
-             
-
-
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 5 </strong>
-            <span class="badge rounded-pill bg-warning float-right">50</span>
-        </a>
-
-             
-            </div>
-        </div>
-    </div>
-
-    <div class="col-2">
-        <div class="card border-info mb-4">
-            <div class="card-body text-info">
-              
-
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 6 </strong>
-            <span class="badge rounded-pill bg-info float-right">50</span>
-        </a>
-
-             
-            </div>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="card border-primary mb-4">
-            <div class="card-body text-primary">
-               
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 7 </strong>
-            <span class="badge rounded-pill bg-primary float-right">50</span>
-        </a>
-
-             
-            </div>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="card border-dark mb-4">
-            <div class="card-body text-dark">
-             
-             
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 8 </strong>
-            <span class="badge rounded-pill bg-secondary float-right">50</span>
-        </a>
-
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-2">
-        <div class="card border-danger mb-4">
-            <div class="card-body text-danger">
-              
-
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 9 </strong>
-            <span class="badge rounded-pill bg-danger float-right">50</span>
-        </a>
-
-             
-            </div>
-        </div>
-    </div>
-
-    <div class="col-2">
-        <div class="card border-success mb-4">
-            <div class="card-body text-success">
-               
-
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 10 </strong>
-            <span class="badge rounded-pill bg-success float-right">50</span>
-        </a>
-
-             
-            </div>
-        </div>
-    </div>
-
-    <div class="col-2">
-        <div class="card border-warning mb-4">
-            <div class="card-body text-warning">
-        
-
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 11 </strong>
-            <span class="badge rounded-pill bg-warning float-right">50</span>
-        </a>
-
-             
-            </div>
-        </div>
-    </div>
-
-    <div class="col-2">
-        <div class="card border-info mb-4">
-            <div class="card-body text-info">
-              
-
-          <a href="#" class="">
-            <i class="icon-ist"></i>  <strong> Grade 12 </strong>
-            <span class="badge rounded-pill bg-info float-right">50</span>
-        </a>
-
-             
-            </div>
-        </div>
-    </div>
-
-</div> </div>
+</div> 
+</div>
 <hr>
  
 

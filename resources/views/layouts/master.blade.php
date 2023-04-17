@@ -8,6 +8,9 @@
     <meta id="csrf-token" name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="CJ Inspired">
 
+
+
+
     <title> @yield('page_title') | {{ config('app.name') }} </title>
 
     @include('partials.inc_top')
@@ -44,5 +47,6 @@
 
 @include('partials.inc_bottom')
 @yield('scripts')
+
 </body>
 </html>

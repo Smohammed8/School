@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Qs;
+use App\Models\MyClass;
+use App\Models\StudentRecord;
 use App\Repositories\UserRepo;
+use App\Repositories\StudentRepo;
 
 class HomeController extends Controller
 {
     protected $user;
-    public function __construct(UserRepo $user)
+    protected $student;
+    public function __construct(UserRepo $user,StudentRepo $student)
     {
         $this->user = $user;
+        $this->student = $student;
     }
 
 
@@ -40,6 +45,9 @@ class HomeController extends Controller
         $d=[];
         if(Qs::userIsTeamSAT()){
             $d['users'] = $this->user->getAll();
+            $d['student_records']  = StudentRecord::all();
+            $d['classes']  = MyClass::all();
+          // $d['student_records']  = $this->student->getAll();
         }
 
         return view('pages.support_team.dashboard', $d);
